@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+}
+
+.rodapePrincipal {
+    background-image: url(fundo.png);
+    background-size: cover;
+    background-color: #6278F7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px;
+}
+
+.rodapePrincipal div > a {
+    padding: 10px;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.rodapePrincipal p, p > a {
+    font-size: 20px;
+    color: white;
+}
