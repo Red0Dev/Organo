@@ -1,10 +1,13 @@
+//importação do useState e dos componente Banner, Formulario, Time e Rodape
 import { useState } from "react";
 import Banner from "./componentes/Banner";
 import Formulario from "./componentes/Formulario";
 import Time from "./componentes/Time";
 import Rodape from "./componentes/Rodape";
 
+//declaração do componente App
 function App() {
+  //array com o nome e estilo dos times em formato de objeto
   const times = [
     {
       nome: "Programação",
@@ -43,27 +46,30 @@ function App() {
     },
   ];
 
+  //array vazio onde vai ser listado os colaboradores
   const [colaboradores, setColaboradores] = useState([]);
 
+  //retorna a página completa
   return (
     <div className="App">
       <Banner />
+
       <Formulario
-        times={times.map((time) => time.nome)}
+        times={times.map((time) => time.nome)} //mapeia e envia um novo array apenas com os nomes dos times para o formulário
         aoColaboradorCadastrado={(colaborador) =>
           setColaboradores([...colaboradores, colaborador])
-        }
+        } //recebe o nome, cargo, imagem e time enviados pelo formulário e adiciona ao fim do array de colaboradores
       />
 
-      {times.map((time, posicao) => (
+      {times.map((time, index) => (
         <Time
           nome={time.nome}
-          key={posicao}
+          key={index}
           corPrimaria={time.corPrimaria}
           corSecundaria={time.corSecundaria}
           colaboradores={colaboradores.filter(
             (colaborador) => colaborador.time == time.nome
-          )}
+          )} //filtra o array de colaboradores e análisa onde ele ficará
         />
       ))}
 
@@ -72,4 +78,5 @@ function App() {
   );
 }
 
+//exportação do componente
 export default App;

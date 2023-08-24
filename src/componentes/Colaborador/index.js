@@ -1,6 +1,9 @@
+//importação do CSS
 import "./Colaborador.css";
 
+//declração do componente Colaborador com as propriedades desestruturadas
 const Colaborador = ({ nome, imagem, cargo, corDeFundo}) => {
+  //retorna um card genérico para os colaboradores
   return (
     <div className="colaborador">
       <div className="cabecalho" style={{backgroundColor: corDeFundo}}>
@@ -14,4 +17,5 @@ const Colaborador = ({ nome, imagem, cargo, corDeFundo}) => {
   );
 };
 
+//exportação do componente
 export default Colaborador;

@@ -1,6 +1,9 @@
+//importação do CSS
 import "./Banner.css";
 
+//declaração do componente Banner
 function Banner() {
+  //retorna o banner
   return (
     <header className="banner">
       <img
@@ -11,4 +14,5 @@ function Banner() {
   );
 }
 
+//exportação do componente
 export default Banner;
