@@ -1,0 +1,48 @@
+.campo {
+    margin: 24px 0;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.campo input {
+    background-color: #fff;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
+    width: 100%;
+    border: none;
+    font-size: 24px;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.campo-color input {
+    padding: 0;
+    height: 40px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.inputDeCor::-webkit-color-swatch {
+    border: none;
+}
+
+.inputDeCor::-moz-color-swatch {
+    border: none;
+}
+
+@media screen and (max-width: 480px) {
+    .campo label {
+        font-size: 20px;
+    }
+    
+    .campo input {
+        font-size: 20px;
+    }
+}

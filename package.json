@@ -6,9 +6,12 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "hex-to-rgba": "^2.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.10.1",
     "react-scripts": "5.0.1",
+    "uuid": "^9.0.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -34,5 +37,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "Olá, sou Jonathan, e gostaria de compartilhar minha experiência e aprendizados durante a criação do Projeto Organo! ___ *O Projeto Organo é um site de organização de equipes, criado para ser intuitivo e eficiente. Ao inserir o nome da pessoa, seu cargo, uma foto e escolher a área de atuação no formulário principal, basta clicar em **criar card** para gerar um card com todas as informações na área correspondente.*",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }

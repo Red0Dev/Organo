@@ -27,13 +27,13 @@ const Rodape = () => {
     <footer className="rodapePrincipal">
       <div>
         {redesSociais.map((redes, index) => (
-          <a key={index} href={redes.link} target="_blank">
+          <a key={index} href={redes.link} target="_blank" rel="noreferrer">
             <img src={redes.imagem} alt={redes.nome} />{" "}
           </a>
         ))} {/* mapeia cada objeto do array de redes sociais e cria uma ancora com uma imagem diferente para cada objeto */}
       </div>
-      <img src="././././imagens/logo.png" alt="Logo da Organo" />
-      <p>&copy; desenvolvido por <a href="https://github.com/red0dev" target="_blank" >Red0Dev</a></p>
+      <img className="logo" src="././././imagens/logo.png" alt="Logo da Organo" />
+      <p>&copy; desenvolvido por <a href="https://github.com/red0dev" target="_blank" rel="noreferrer">Red0Dev</a></p>
     </footer>
   );
 };

@@ -14,3 +14,9 @@
 .botao:hover {
     color: #95ffd4;
 }
+
+@media screen and (max-width: 520px) {
+    .botao {
+        padding: 32px 32px;
+    }
+}

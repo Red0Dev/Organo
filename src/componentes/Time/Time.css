@@ -1,11 +1,48 @@
 .time {
     text-align: center;
     padding: 32px;
+    background-image: url(fundo.png);
+    background-size: cover;
+    position: relative;
 }
 
 .time h3 {
+    font-family: 'Prata', serif;
     font-size: 32px;
     border-bottom: 4px solid;
     display: inline-block;
     padding-bottom: 8px;
 }
+
+.inputDeCor {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+.inputDeCor::-webkit-color-swatch {
+    border-radius: 50%;
+    border: none;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+.inputDeCor::-moz-color-swatch {
+    border-radius: 50%;
+    border: none;
+  }
+
+  @media screen and (max-width: 480px) {
+    .inputDeCor {
+      width: 75px;
+      height: 75px;
+      right: 25px;
+    }
+  }

@@ -1,7 +1,8 @@
-//importação do useState, do componente Botao, CampoTexto e ListaSuspensa e do CSS
+//importação do useState, do componente Botao, Campo e ListaSuspensa e do CSS
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import Botao from "../Botao";
-import CampoTexto from "../CampoTexto";
+import Campo from "../Campo";
 import ListaSuspensa from "../ListaSuspensa";
 import "./Formulario.css";
 
@@ -12,6 +13,10 @@ const Formulario = (props) => {
   const [cargo, setCargo] = useState("");
   const [imagem, setImagem] = useState("");
   const [time, setTime] = useState("");
+  const [id, setId] = useState(uuidv4()); //declaração do id constante
+  const [favorito, setFavorito] = useState(false);
+  const [nomeTime, setNomeTime] = useState("");
+  const [corTime, setCorTime] = useState("");
 
   //retorna o formulário
   return (
@@ -24,44 +29,76 @@ const Formulario = (props) => {
             cargo,
             imagem,
             time,
-          }); //envia o nome, cargo, imagem e time para o app.js 
-          setNome('') 
-          setCargo('') 
-          setImagem('') 
-          setTime('')
+            id,
+            favorito,
+          }); //envia o nome, cargo, imagem, time e id para o app.js
+          setId(uuidv4()); //cria um novo id para o card
+          setNome("");
+          setCargo("");
+          setImagem("");
+          setTime("");
+          setFavorito(false);
           //limpa os campos do formulário de nome, cargo, imagem e time
         }}
       >
         <h2>Preencha os dados para criar o card do colaborador</h2>
-        <CampoTexto
+        <Campo
           valor={nome}
           aoAlterado={(valor) => setNome(valor)}
           obrigatorio={true}
           label="Nome"
-          placeholder="Digite o seu nome"
+          placeholder="Digite seu nome"
         />
-        <CampoTexto
+        <Campo
           valor={cargo}
           aoAlterado={(valor) => setCargo(valor)}
           obrigatorio={true}
           label="Cargo"
-          placeholder="Digite o seu cargo"
+          placeholder="Digite seu cargo"
         />
-        <CampoTexto
+        <Campo
           valor={imagem}
           aoAlterado={(valor) => setImagem(valor)}
           obrigatorio={true}
           label="Imagem"
-          placeholder="Digite o endereço da imagem"
+          placeholder="Digite a URL"
         />
         <ListaSuspensa
           valor={time}
-          aoAlterado={(valor) => setTime(valor)} //recebe o valor do input 
+          aoAlterado={(valor) => setTime(valor)} //recebe o valor do input
           obrigatorio={true}
           label="Time"
           itens={props.times} //recebe um array com os nomes dos times pelo App.js e envia para a lista
         />
         <Botao>Criar Card</Botao>
+      </form>
+      <form
+        onSubmit={(evento) => {
+          evento.preventDefault();
+          props.cadastrarTime({
+            nome: nomeTime,
+            cor: corTime,
+          });
+          setNomeTime("");
+          setCorTime("");
+        }}
+      >
+        <h2>Preencha os dados para criar um novo time</h2>
+        <Campo
+          valor={nomeTime}
+          aoAlterado={(valor) => setNomeTime(valor)}
+          obrigatorio
+          label="Nome"
+          placeholder="Digite o Nome"
+        />
+        <Campo
+          valor={corTime}
+          aoAlterado={(valor) => setCorTime(valor)}
+          obrigatorio
+          label="Cor"
+          type="color"
+        />
+        <Botao>Criar Time</Botao>
       </form>
     </section>
   );

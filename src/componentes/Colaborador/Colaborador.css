@@ -1,5 +1,6 @@
 .colaborador {
     width: 280px;
+    position: relative;
 }
 
 .colaborador .cabecalho {
@@ -38,7 +39,23 @@
 
 .time .colaboradores {
     display: flex;
-    justify-content: space-around;
+    gap: 30px;
+    justify-content: center;
     margin-top: 32px;
     flex-wrap: wrap;
+}
+
+.deletar {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    opacity: 50%;
+    cursor: pointer;
+}
+
+.favoritar { 
+    cursor: pointer;
+    position: absolute;
+    top: 165px;
+    right: 127px;
 }

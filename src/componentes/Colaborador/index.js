@@ -1,17 +1,39 @@
 //importação do CSS
 import "./Colaborador.css";
+import { AiFillCloseCircle, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 //declração do componente Colaborador com as propriedades desestruturadas
-const Colaborador = ({ nome, imagem, cargo, corDeFundo}) => {
+const Colaborador = ({ colaborador, corDeFundo, aoDeletar, aoFavoritar }) => {
+  function favoritar() {
+    aoFavoritar(colaborador.id)
+  }
+
+  const propsFavorito = {
+    size: 30,
+    onClick: favoritar,
+  }
+
   //retorna um card genérico para os colaboradores
   return (
     <div className="colaborador">
-      <div className="cabecalho" style={{backgroundColor: corDeFundo}}>
-        <img src={imagem} alt={nome} />
+      <AiFillCloseCircle
+        size={30}
+        className="deletar"
+        onClick={() => aoDeletar(colaborador.id)}
+      />
+      <div className="cabecalho" style={{ backgroundColor: corDeFundo }}>
+        <img src={colaborador.imagem} alt={colaborador.nome} />
       </div>
       <div className="rodape">
-        <h4>{nome}</h4>
-        <h5>{cargo}</h5>
+        <h4>{colaborador.nome}</h4>
+        <h5>{colaborador.cargo}</h5>
+        <div className="favoritar">
+          {colaborador.favorito ? (
+            <AiFillHeart {...propsFavorito} color="#ff0000" /> //passa todos os ojbetos de propsFavorito
+          ) : (
+            <AiOutlineHeart {...propsFavorito} />
+          )}
+        </div>
       </div>
     </div>
   );
