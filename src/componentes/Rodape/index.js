@@ -1,5 +1,6 @@
 //importação do CSS
 import "./Rodape.css";
+import { BsLinkedin } from 'react-icons/bs'
 
 //declaração do componente Rodape
 const Rodape = () => {
@@ -31,6 +32,7 @@ const Rodape = () => {
             <img src={redes.imagem} alt={redes.nome} />{" "}
           </a>
         ))} {/* mapeia cada objeto do array de redes sociais e cria uma ancora com uma imagem diferente para cada objeto */}
+          <a href="linkedin.com/in/jonathan-gabsf/" target="_blank" rel="noreferrer"> <BsLinkedin size={32}/> </a>
       </div>
       <img className="logo" src="././././imagens/logo.png" alt="Logo da Organo" />
       <p>&copy; desenvolvido por <a href="https://github.com/red0dev" target="_blank" rel="noreferrer">Red0Dev</a></p>

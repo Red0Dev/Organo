@@ -17,11 +17,14 @@ const Formulario = (props) => {
   const [favorito, setFavorito] = useState(false);
   const [nomeTime, setNomeTime] = useState("");
   const [corTime, setCorTime] = useState("");
+  const [visivelTime, setVisivelTime] = useState("none");
+  const [visivelCard, setVisivelCard] = useState("block");
 
   //retorna o formulário
   return (
     <section className="formulario">
       <form
+        style={{ display: visivelCard }}
         onSubmit={(evento) => {
           evento.preventDefault(); //previni o comportamento padrão de um formulário
           props.aoColaboradorCadastrado({
@@ -70,9 +73,19 @@ const Formulario = (props) => {
           label="Time"
           itens={props.times} //recebe um array com os nomes dos times pelo App.js e envia para a lista
         />
+        <p
+        className="criarTime"
+          onClick={() => {
+            setVisivelTime("block")
+            setVisivelCard("none")
+          }}
+        >
+          Adicione seu time
+        </p>
         <Botao>Criar Card</Botao>
       </form>
       <form
+        style={{ display: visivelTime }}
         onSubmit={(evento) => {
           evento.preventDefault();
           props.cadastrarTime({
@@ -81,6 +94,8 @@ const Formulario = (props) => {
           });
           setNomeTime("");
           setCorTime("");
+          setVisivelTime("none");
+          setVisivelCard("block")
         }}
       >
         <h2>Preencha os dados para criar um novo time</h2>

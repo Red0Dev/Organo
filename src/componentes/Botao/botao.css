@@ -17,6 +17,14 @@
 
 @media screen and (max-width: 520px) {
     .botao {
-        padding: 32px 32px;
+        padding: 20px 48px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .botao {
+        padding: 16px 48px;
+        font-size: 16px;
     }
 }

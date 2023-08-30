@@ -6,6 +6,7 @@
     display: block;
     margin-bottom: 8px;
     font-size: 24px;
+    text-transform: lowercase;
 }
 
 .campo input {
@@ -43,6 +44,11 @@
     }
     
     .campo input {
-        font-size: 20px;
+        font-size: 16px;
+        padding: 16px;
+    }
+
+    .campo-color input {
+        padding: 0;
     }
 }

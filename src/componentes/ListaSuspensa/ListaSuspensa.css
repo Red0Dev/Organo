@@ -2,6 +2,7 @@
     display: block;
     margin-bottom: 8px;
     font-size: 24px;
+    text-transform: lowercase;
 }
 
 .lista-suspensa select {
@@ -13,4 +14,15 @@
     padding: 24px;
     box-sizing: border-box;
     border-radius: 1px;
+}
+
+@media screen and (max-width: 480px) {
+    .lista-suspensa label {
+        font-size: 20px;
+    }
+
+    .lista-suspensa select {
+        font-size: 16px;
+        padding: 16px;
+    }
 }
