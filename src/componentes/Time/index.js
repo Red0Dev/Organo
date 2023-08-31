@@ -10,13 +10,13 @@ const Time = (props) => {
     props.colaboradores.length > 0 && (
       <section
         className="time"
-        style={{ backgroundColor: hexToRgba(props.cor, "0.4") }}
+        style={{ backgroundColor: hexToRgba(props.cor, "0.4") }} //com a função hexToRgba a seção pega a cor do card e adiciona ao background com 0.4 de opacidade
       >
         <input
           value={props.cor}
           type="color"
           className="inputDeCor"
-          onChange={(evento) => props.mudarCor(evento.target.value, props.id)}
+          onChange={(evento) => props.mudarCor(evento.target.value, props.id)} //ao mudar a cor chama uma função anônima que chama a propriedade de mudarCor, nele da target no value do cor do time e seleciona o id do time especifico
         />
         <h3 style={{ borderColor: props.cor }}>{props.nome}</h3>{" "}
         {/* nome do colaborador */}
@@ -30,7 +30,7 @@ const Time = (props) => {
                 aoDeletar={props.aoDeletar}
                 aoFavoritar={props.aoFavoritar}
               />
-            ); //mapeia o array de colaboradores, cria o card e nele põe o nome, cargo, adiciona a imagem e muda a cor de fundo do card
+            ); //mapeia o array de colaboradores, cria o card e nele põe o nome, cargo, adiciona a imagem e muda a cor de fundo do card, além disso envia do app.js as props deletar e favoritar para colaborador
           })}
         </div>
       </section>

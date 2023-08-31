@@ -5,20 +5,20 @@ import Botao from "../Botao";
 import Campo from "../Campo";
 import ListaSuspensa from "../ListaSuspensa";
 import "./Formulario.css";
+import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from "react-icons/ai";
 
 //declaração do componente Formulario
 const Formulario = (props) => {
-  //declaração das constantes em strings vazias
   const [nome, setNome] = useState("");
   const [cargo, setCargo] = useState("");
   const [imagem, setImagem] = useState("");
   const [time, setTime] = useState("");
-  const [id, setId] = useState(uuidv4()); //declaração do id constante
+  const [id, setId] = useState(uuidv4());
   const [favorito, setFavorito] = useState(false);
   const [nomeTime, setNomeTime] = useState("");
   const [corTime, setCorTime] = useState("");
-  const [visivelTime, setVisivelTime] = useState("none");
-  const [visivelCard, setVisivelCard] = useState("block");
+  const [visivelCard, setVisivelCard] = useState("block"); //constante que contem o estilo do display do formulário de criar cards
+  const [visivelTime, setVisivelTime] = useState("none"); //constante que contem o estilo do formulário de criar times
 
   //retorna o formulário
   return (
@@ -34,7 +34,7 @@ const Formulario = (props) => {
             time,
             id,
             favorito,
-          }); //envia o nome, cargo, imagem, time e id para o app.js
+          }); //envia o nome, cargo, imagem, time, id e favorito para o app.js
           setId(uuidv4()); //cria um novo id para o card
           setNome("");
           setCargo("");
@@ -44,7 +44,7 @@ const Formulario = (props) => {
           //limpa os campos do formulário de nome, cargo, imagem e time
         }}
       >
-        <h2>Preencha os dados para criar o card do colaborador</h2>
+        <h2>Preencha os dados e crie o card do colaborador</h2>
         <Campo
           valor={nome}
           aoAlterado={(valor) => setNome(valor)}
@@ -74,13 +74,13 @@ const Formulario = (props) => {
           itens={props.times} //recebe um array com os nomes dos times pelo App.js e envia para a lista
         />
         <p
-        className="criarTime"
+          className="criarTime"
           onClick={() => {
-            setVisivelTime("block")
-            setVisivelCard("none")
-          }}
+            setVisivelTime("block");
+            setVisivelCard("none");
+          }} //ao clicar no parágrafo ele modifica o display do formulário de card pra none e o de time pra block
         >
-          Adicione seu time
+          Adicione seu time <AiOutlineDoubleRight size={25} />
         </p>
         <Botao>Criar Card</Botao>
       </form>
@@ -91,14 +91,25 @@ const Formulario = (props) => {
           props.cadastrarTime({
             nome: nomeTime,
             cor: corTime,
-          });
+          }); //envia um objeto com o nome e a cor do time para o app.js
           setNomeTime("");
           setCorTime("");
-          setVisivelTime("none");
-          setVisivelCard("block")
+          //limpa a const com o nome e a cor do time
         }}
       >
-        <h2>Preencha os dados para criar um novo time</h2>
+        <h2>
+          {" "}
+          <AiOutlineDoubleLeft
+            size={35}
+            color="6278f7"
+            cursor="pointer"
+            onClick={() => {
+              setVisivelTime("none");
+              setVisivelCard("block");
+            }} //ao clicar no parágrafo ele modifica o display do formulário de card pra none e o de time pra block
+          />{" "}
+          Criar um novo time
+        </h2>
         <Campo
           valor={nomeTime}
           aoAlterado={(valor) => setNomeTime(valor)}

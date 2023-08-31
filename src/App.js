@@ -57,7 +57,7 @@ function App() {
 
       <Formulario
         cadastrarTime={(novoTime) => {
-          setTimes([...times, { ...novoTime, id: uuidv4() }]);
+          setTimes([...times, { ...novoTime, id: uuidv4() }]); //vai até o fim do array de times, dentro cria um objeto com as props do novo time enviado pelo formulário e um adiciona um id ao time
         }}
         times={times.map((time) => time.nome)} //mapeia e envia um novo array apenas com os nomes dos times para o formulário
         aoColaboradorCadastrado={(colaborador) =>
@@ -74,11 +74,11 @@ function App() {
           corSecundaria={time.corSecundaria}
           colaboradores={colaboradores.filter(
             (colaborador) => colaborador.time === time.nome
-          )} //filtra o array de colaboradores e análisa onde ele ficará
+          )} //filtra o array de colaboradores, caso o time selecionado pra o colaborador for igual ao da área de time, ele será colocado lá
           aoDeletar={(id) => {
             setColaboradores(
               colaboradores.filter((colaborador) => colaborador.id !== id)
-            );
+            ); //pega o id do colaborador, filtra os colaboradores, se o id do colaborador for igual ele será excluido e o filter criará um novo array com os colaboradores restantes
           }}
           mudarCor={(cor, id) => {
             setTimes(
@@ -88,14 +88,14 @@ function App() {
                 }
                 return time;
               })
-            );
+            ); //pega a cor e o id do time, mapeia o array de times, se o id do time selecionado for igual ao do time mapeado, modifica a cor do time pela cor selecionada, no fim retorna o time com o estado atualizado pra o método map
           }}
           aoFavoritar={(id) => {
             setColaboradores(colaboradores.map((colaborador) => {
               if (colaborador.id === id)
                 colaborador.favorito = !colaborador.favorito;
               return colaborador
-            }));
+            })); //pega o id do colaborador, mapeia os colaboradores cadastrados, se o id for igual ao do colaborador clicado, o estado de favorito será invertido, no fim retorna o colaborador com o estado atualizado pra o método map
           }}
         />
       ))}

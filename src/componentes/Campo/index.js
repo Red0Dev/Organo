@@ -6,13 +6,13 @@ const Campo = ({
   label,
   valor,
   aoAlterado,
-  obrigatorio = false,
+  obrigatorio = false, //padrão de required false
   placeholder,
-  type = "text",
+  type = "text", //padrão de input tipo texto
 }) => {
   //retorna os inputs
   return (
-    <div className={`campo campo-${type}`}>
+    <div className={`campo campo-${type}`}> {/* muda o estilo do campo quando for cor */} 
       <label>{label}</label>
       <input
         value={valor}
